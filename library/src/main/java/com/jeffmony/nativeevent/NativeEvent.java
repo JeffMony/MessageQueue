@@ -13,7 +13,7 @@ public class NativeEvent {
         }
         try {
             System.loadLibrary("c++_shared");
-            System.loadLibrary("messagequeue");
+            System.loadLibrary("jm_message");
             sLoadLibrary = true;
         } catch (Throwable e) {
             throw e;

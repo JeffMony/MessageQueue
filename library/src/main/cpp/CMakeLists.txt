@@ -30,13 +30,13 @@ file (GLOB event_source
 
 # 添加编译库的名字, 动态库和源码
 add_library(
-        messagequeue
+        jm_message
         SHARED
         ${event_source}
 )
 
 target_link_libraries(
-        messagequeue
+        jm_message
         android
         log
         z
