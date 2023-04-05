@@ -10,11 +10,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-.poizon/local.pzn
 
-.poizon/
-
-.poizon-idea/
 reports/
 crash
 parse_crash.py

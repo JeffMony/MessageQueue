@@ -15,7 +15,6 @@ android {
             cmake {
                 arguments "-DANDROID_ARM_NEON=TRUE",
                         "-DANDROID_TOOLCHAIN=clang",
-                        "-DANDROID_STL=c++_shared",
                         "-DANDROID_API=21",
                         "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
                 cppFlags "-std=c++17", "-ffunction-sections -fdata-sections"
