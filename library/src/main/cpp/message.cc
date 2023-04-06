@@ -35,22 +35,6 @@ Message::~Message() {
    * target
    * 不应该在Message析构函数中销毁, 应该由开发者决定是否销毁
    */
-   if (obj1 != nullptr) {
-     delete obj1;
-     obj1 = nullptr;
-   }
-   if (obj2 != nullptr) {
-     delete obj2;
-     obj2 = nullptr;
-   }
-   if (obj3 != nullptr) {
-     delete obj3;
-     obj3 = nullptr;
-   }
-   if (obj4 != nullptr) {
-     delete obj4;
-     obj4 = nullptr;
-   }
 }
 
 }

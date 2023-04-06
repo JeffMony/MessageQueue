@@ -41,6 +41,12 @@ void Handler::DispatchMessage(Message *msg) {
   }
 }
 
+void Handler::DispatchRemoveMessage(Message *msg) {
+  if (callback_) {
+    callback_->DispatchRemoveMessage(msg);
+  }
+}
+
 void Handler::RemoveMessage(int what) {
   if (looper_) {
     looper_->RemoveMessage(what);

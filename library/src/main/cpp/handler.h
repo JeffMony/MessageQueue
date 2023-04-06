@@ -19,6 +19,8 @@ class Message;
 class HandlerCallback {
 public:
   virtual void HandleMessage(Message *msg) {}
+
+  virtual void DispatchRemoveMessage(Message *msg) {}
 };
 
 class Handler {
@@ -44,6 +46,12 @@ public:
    * @param msg
    */
   void DispatchMessage(Message *msg);
+
+  /**
+   * RomoveMessage时触发的回调
+   * @param msg
+   */
+  void DispatchRemoveMessage(Message *msg);
 
   /**
    * 销毁消息队列中msg.what = what的消息

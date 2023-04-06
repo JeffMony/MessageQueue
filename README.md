@@ -13,6 +13,8 @@
 class BaseClass : public thread::HandlerCallback {
 protected:
   void HandleMessage(thread::Message *msg) override;
+  
+  void DispatchRemoveMessage(thread::Message *msg) override;
 }
 ```
 
