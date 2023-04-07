@@ -109,6 +109,7 @@ void MessageQueue::RemoveMessage(int what) {
   while (it != queue_.end()) {
     Message *msg = *it;
     if (what == msg->what) {
+      msg->target->DispatchRemoveMessage(msg);
       delete msg;
       it = queue_.erase(it);
       continue;
