@@ -20,7 +20,7 @@ class HandlerCallback {
 public:
   virtual void HandleMessage(Message *msg) {}
 
-  virtual void DispatchRemoveMessage(Message *msg) {}
+  virtual void RemoveMessage(Message *msg) {}
 };
 
 class Handler {
@@ -48,7 +48,7 @@ public:
   void DispatchMessage(Message *msg);
 
   /**
-   * RomoveMessage时触发的回调
+   * 上层回调即将被清理的消息
    * @param msg
    */
   void DispatchRemoveMessage(Message *msg);
@@ -64,6 +64,11 @@ public:
    * @return
    */
   int Size();
+
+  /**
+   * 打印消息队列中的消息
+   */
+  void DumpMessages();
 
 private:
   Looper *looper_;

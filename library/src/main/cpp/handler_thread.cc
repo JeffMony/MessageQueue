@@ -54,10 +54,6 @@ void HandlerThread::RunInternal() {
   }
   exiting_ = false;
   exited_ = true;
-  if (looper_) {
-    delete looper_;
-    looper_ = nullptr;
-  }
   pthread_mutex_unlock(&mutex_);
 }
 

@@ -27,8 +27,6 @@ public:
   int arg5;
   int arg6;
   int arg7;
-  float arg8;
-  float arg9;
   bool flag1;
   void *obj1;
   void *obj2;

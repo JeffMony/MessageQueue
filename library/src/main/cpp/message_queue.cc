@@ -25,6 +25,9 @@ MessageQueue::~MessageQueue() {
 }
 
 void MessageQueue::Offer(Message *msg) {
+  if (is_destroyed_) {
+    return;
+  }
   pthread_mutex_lock(&queue_mutex_);
   if (is_destroyed_) {
     pthread_mutex_unlock(&queue_mutex_);
@@ -36,6 +39,9 @@ void MessageQueue::Offer(Message *msg) {
 }
 
 void MessageQueue::OfferAtFront(Message *msg) {
+  if (is_destroyed_) {
+    return;
+  }
   pthread_mutex_lock(&queue_mutex_);
   if (is_destroyed_) {
     pthread_mutex_unlock(&queue_mutex_);
@@ -84,6 +90,9 @@ bool MessageQueue::IsEmpty() {
 }
 
 void MessageQueue::Clear() {
+  if (is_destroyed_) {
+    return;
+  }
   Notify();
   if (queue_.empty()) {
     return;
@@ -120,6 +129,9 @@ void MessageQueue::RemoveMessage(int what) {
 }
 
 void MessageQueue::Dump() {
+  if (is_destroyed_) {
+    return;
+  }
   pthread_mutex_lock(&queue_mutex_);
   std::ostringstream os;
   std::list<Message *>::iterator it = queue_.begin();

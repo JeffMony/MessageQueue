@@ -43,7 +43,7 @@ void Handler::DispatchMessage(Message *msg) {
 
 void Handler::DispatchRemoveMessage(Message *msg) {
   if (callback_) {
-    callback_->DispatchRemoveMessage(msg);
+    callback_->RemoveMessage(msg);
   }
 }
 
@@ -58,6 +58,12 @@ int Handler::Size() {
     return looper_->Size();
   }
   return 0;
+}
+
+void Handler::DumpMessages() {
+  if (looper_) {
+    looper_->Dump();
+  }
 }
 
 }

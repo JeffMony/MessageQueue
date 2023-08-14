@@ -67,6 +67,9 @@ void Looper::Exit() {
 }
 
 void Looper::Quit(bool safely) {
+  if (exited_) {
+    return;
+  }
   pthread_mutex_lock(&variable_mutex_);
   if (exiting_ || exited_) {
     pthread_mutex_unlock(&variable_mutex_);
@@ -96,6 +99,9 @@ int Looper::Size() {
 }
 
 void Looper::SendMessage(Message *msg) {
+  if (exited_) {
+    return;
+  }
   pthread_mutex_lock(&variable_mutex_);
   if (exiting_ || exited_) {
     pthread_mutex_unlock(&variable_mutex_);
@@ -106,6 +112,9 @@ void Looper::SendMessage(Message *msg) {
 }
 
 void Looper::SendMessageAtFront(Message *msg) {
+  if (exited_) {
+    return;
+  }
   pthread_mutex_lock(&variable_mutex_);
   if (exiting_ || exited_) {
     pthread_mutex_unlock(&variable_mutex_);
@@ -122,6 +131,9 @@ void Looper::RemoveMessage(int what) {
 }
 
 void Looper::LoopInternal() {
+  if (exited_) {
+    return;
+  }
   pthread_mutex_lock(&variable_mutex_);
   if (looping_ || exiting_ || exited_) {
     pthread_mutex_unlock(&variable_mutex_);
