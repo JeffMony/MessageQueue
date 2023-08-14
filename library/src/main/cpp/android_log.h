@@ -6,7 +6,7 @@
 #define ANDROIDIMAGERENDER_LIBRARY_SRC_MAIN_CPP_ANDROID_LOG_H_
 
 #include <android/log.h>
-#define TAG "messagequeue"
+#define TAG "message_queue"
 
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, TAG, __VA_ARGS__)
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
